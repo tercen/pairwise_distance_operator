@@ -1,9 +1,9 @@
 {
-  "name": "Median",
-  "description": "Return the medium value of a cell",
+  "name": "RMSD",
+  "description": "Relative Mean Squared Deviation",
   "tags": ["basic statistics"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_operator"],
+  "urls": ["https://github.com/tercen/RMSD_operator"],
   "properties": []
 }
 
