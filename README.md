@@ -1,4 +1,4 @@
- against# Pairwise RMSD operator
+# Pairwise RMSD operator
 
 ##### Description
 
