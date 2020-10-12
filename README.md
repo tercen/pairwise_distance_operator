@@ -1,4 +1,4 @@
-# Pairwise RMSD operator
+ against# Pairwise RMSD operator
 
 ##### Description
 
@@ -8,19 +8,19 @@ The `pairwise_RMSD` operator returns the Relative Mean Squared Deviation compute
 
 Input projection|.
 ---|---
-`rows`        | numeric, input variables 
-`.y`        | numeric, input value 
+`row`        | factor, input variables 
+`col`        | factor, observations 
+`.y`        | numeric, measurements
 
 Output relations|.
 ---|---
 `rmsd`        | numeric, RMSD
-`from`        | numeric, variable 1
-`to`        | numeric, variable 2
+`to`        | numeric, variable to be projected against the initial one for pairwise distance visualisation
 
 ##### Details
 
-#### References
+##### References
 
 ##### See Also
 
-#### Examples
+##### Examples
