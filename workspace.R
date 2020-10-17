@@ -4,31 +4,38 @@ library(proxy)
 library(tidyr)
 
 options("tercen.workflowId" = "a2ac2439e77ba78ceb8f9be37d016b99")
-options("tercen.stepId"     = "cc19cb50-bb55-4986-8625-223e1f619dd8")
+options("tercen.stepId"     = "b6be261e-c536-495e-9ac4-d89c0da2dbe2")
 
-getOption("tercen.workflowId")
-getOption("tercen.stepId")
-
-do.rmsd <- function(df) {
-  df <- df[, !colnames(df) %in% ".ci"]
-  rmsd <- function(x, y) sqrt(mean((x + y)^2))
+do.dist <- function(df, method) {
   
-  dist.mat <- proxy::dist(df, method = rmsd)
-  xy <- t(combn(1:ncol(dist.mat),2))
+  df <- df[, !colnames(df) %in% ".ri"]
+  if(method == "rmsd") method <- eval(parse(text = "rmsd"))
+  dist.mat <- proxy::dist(df, method = method, diag = TRUE)
   
-  out <- data.frame(
-    .ri = xy[, 1],
-    from = c(ctx$rselect()[[1]])[xy[, 1]],
-    to = c(ctx$rselect()[[1]])[xy[, 2]],
-    dist = c(dist.mat)
-  )
-  return(out)
+  mat <- as.data.frame(as.matrix(dist.mat))
+  mat$.ri <- 1:nrow(mat) - 1
+  mat <- mat %>% gather(dist_to, dist, -.ri)
+  mat$dist_to <- as.numeric(mat$dist_to) - 1 
+  
+  return(mat)
 }
 
-(ctx = tercenCtx())  %>% 
+(ctx = tercenCtx())  
+
+rmsd <- function(x, y) sqrt(mean((x + y)^2))
+
+method <- "euclidean" #rmsd "euclidean" "maximum", "manhattan", "canberra", "binary" or "minkowski"
+if(!is.null(ctx$op.value('method'))) method <- ctx$op.value('method')
+
+df_out <- ctx %>% 
   select(.y, .ri, .ci) %>% 
-  spread(.ri, .y) %>%
-  do(do.rmsd(.)) %>%
+  spread(.ci, .y) %>%
+  do(do.dist(., method)) 
+
+rnames <- ctx$rselect(ctx$rnames[[1]])[[1]]
+
+df_out %>%
+  mutate(dist_to = rnames[dist_to + 1]) %>%
   ctx$addNamespace() %>%
   ctx$save()
 

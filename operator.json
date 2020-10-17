@@ -1,10 +1,26 @@
 {
-  "name": "RMSD",
-  "description": "Relative Mean Squared Deviation",
+  "name": "Pairwise distance",
+  "description": "Compute pairwise distances between variables.",
   "tags": ["basic statistics"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/RMSD_operator"],
-  "properties": []
+  "urls": ["https://github.com/tercen/pairwise_distance_operator"],
+  "properties": [
+   {
+    "kind": "EnumeratedProperty",
+    "name": "method",
+    "defaultValue": "euclidian",
+    "values": [
+      "euclidian",
+      "rmsd",
+      "maximum",
+      "manhattan",
+      "canberra",
+      "binary",
+      "minkowski"
+    ],
+    "description": "The distance measure to be used."
+  } 
+  ]
 }
 
 
