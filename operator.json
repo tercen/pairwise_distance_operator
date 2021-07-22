@@ -1,6 +1,6 @@
 {
-  "name": "Pairwise distance",
-  "description": "Compute pairwise distances between variables.",
+  "name": "Pairwise Distance",
+  "description": "Calculates pairwise (e.g x,y) distances between variables as a single number.",
   "tags": ["basic statistics"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/pairwise_distance_operator"],
