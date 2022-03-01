@@ -191,10 +191,10 @@
     },
     "proxy": {
       "Package": "proxy",
-      "Version": "0.4-24",
+      "Version": "0.4-26",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "5967020649b83afda47a18198c0e02e2",
+      "Hash": "50b405c6419e921b9e9360cc9ebbcf2d",
       "Requirements": []
     },
     "purrr": {
