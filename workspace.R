@@ -3,8 +3,8 @@ library(dplyr)
 library(proxy)
 library(tidyr)
 
-options("tercen.workflowId" = "a2ac2439e77ba78ceb8f9be37d016b99")
-options("tercen.stepId"     = "b6be261e-c536-495e-9ac4-d89c0da2dbe2")
+options("tercen.workflowId" = "0add2df8c4543198d0b9ab7b55003e76")
+options("tercen.stepId"     = "d732d42f-cb7d-4402-9639-ca768ccba766")
 
 do.dist <- function(df, method) {
   
@@ -20,7 +20,7 @@ do.dist <- function(df, method) {
   return(mat)
 }
 
-(ctx = tercenCtx())  
+ctx <- tercenCtx()
 
 rmsd <- function(x, y) sqrt(mean((x + y)^2))
 

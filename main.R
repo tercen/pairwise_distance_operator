@@ -17,11 +17,11 @@ do.dist <- function(df, method) {
   return(mat)
 }
 
-(ctx = tercenCtx())  
+ctx <- tercenCtx()
 
 rmsd <- function(x, y) sqrt(mean((x + y)^2))
 
-method <- "euclidean" #rmsd "euclidean" "maximum", "manhattan", "canberra", "binary" or "minkowski"
+#method <- "euclidean" #rmsd "euclidean" "maximum", "manhattan", "canberra", "binary" or "minkowski"
 if(!is.null(ctx$op.value('method'))) method <- ctx$op.value('method')
 
 df_out <- ctx %>% 
@@ -35,4 +35,3 @@ df_out %>%
   mutate(dist_to = rnames[dist_to + 1]) %>%
   ctx$addNamespace() %>%
   ctx$save()
-
