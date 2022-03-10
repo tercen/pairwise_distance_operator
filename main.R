@@ -10,7 +10,7 @@ do.dist <- function(df, method) {
   dist.mat <- proxy::dist(df, method = method, diag = TRUE)
   
   mat <- as.data.frame(as.matrix(dist.mat))
-  mat$.ri <- 1:nrow(mat) - 1
+  mat$.ri <- 1:nrow(mat) - 1L
   mat <- mat %>% gather(dist_to, dist, -.ri)
   mat$dist_to <- as.numeric(mat$dist_to) - 1 
   
