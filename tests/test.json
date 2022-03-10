@@ -1,7 +1,14 @@
 {
   "kind": "OperatorUnitTest",
   "name": "Pairwise distance",
-  "namespace": "ds0",
+  "namespace": "ds000",
+  "propertyValues": [
+    {
+    "kind": "PropertyValue",
+    "name": "method",
+    "value": "maximum"
+    }
+  ], 
   "inputDataUri": "c03_simple_exp.tsv",
   "outputDataUri": ["table1.csv","table2.csv"],
   "columns": ["Observation"],
