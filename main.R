@@ -6,7 +6,15 @@ library(tidyr)
 do.dist <- function(df, method) {
   
   df <- df[, !colnames(df) %in% ".ri"]
-  if(method == "rmsd") method <- eval(parse(text = "rmsd"))
+  if(method %in% c("rmsd", "spearman", "pearson", "kendall")) {
+    method <- switch(
+      method,
+      "rmsd" = rmsd,
+      "spearman" = spearman,
+      "pearson" = pearson,
+      "kendall" = kendall
+    )
+  }
   dist.mat <- proxy::dist(df, method = method, diag = TRUE)
   
   mat <- as.data.frame(as.matrix(dist.mat))
@@ -20,9 +28,11 @@ do.dist <- function(df, method) {
 ctx <- tercenCtx()
 
 rmsd <- function(x, y) sqrt(mean((x + y)^2))
+pearson <- function(x, y) cor(x, y, method = "pearson")
+kendall <- function(x, y) cor(x, y, method = "kendall")
+spearman <- function(x, y) cor(x, y, method = "spearman")
 
-#method <- "euclidean" #rmsd "euclidean" "maximum", "manhattan", "canberra", "binary" or "minkowski"
-if(!is.null(ctx$op.value('method'))) method <- ctx$op.value('method')
+method <- ctx$op.value('method', as.character, "euclidean")
 
 df_out <- ctx %>% 
   select(.y, .ri, .ci) %>% 

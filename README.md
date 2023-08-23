@@ -14,7 +14,7 @@ Input projection|.
 
 Input parameters|.
 ---|---
-`method`        | factor, any of `euclidian`, `rmsd`, `maximum`, `manhattan`, `canberra`, `binary` or `minkowski`.
+`method`        | factor, any of `euclidian`, `pearson`, `spearman`, `kendall`, `rmsd`, `maximum`, `manhattan`, `canberra`, `binary` or `minkowski`.
 
 Output relations|.
 ---|---

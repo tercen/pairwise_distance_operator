@@ -1,6 +1,6 @@
 {
   "name": "Pairwise Distance",
-  "description": "Calculates pairwise (e.g x,y) distances between variables as a single number.",
+  "description": "Calculates various pairwise distances between variables.",
   "tags": ["basic statistics"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/pairwise_distance_operator"],
@@ -11,6 +11,9 @@
     "defaultValue": "euclidian",
     "values": [
       "euclidian",
+      "pearson",
+      "spearman",
+      "kendall",
       "rmsd",
       "maximum",
       "manhattan",
