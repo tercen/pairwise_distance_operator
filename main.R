@@ -28,11 +28,13 @@ do.dist <- function(df, method) {
 ctx <- tercenCtx()
 
 rmsd <- function(x, y) sqrt(mean((x + y)^2))
-pearson <- function(x, y) cor(x, y, method = "pearson")
-kendall <- function(x, y) cor(x, y, method = "kendall")
-spearman <- function(x, y) cor(x, y, method = "spearman")
 
-method <- ctx$op.value('method', as.character, "euclidean")
+missing_data_behaviour <- ctx$op.value('missing_data_behaviour', as.character, "na.or.complete")
+pearson <- function(x, y) cor(x, y, method = "pearson", use = missing_data_behaviour)
+kendall <- function(x, y) cor(x, y, method = "kendall", use = missing_data_behaviour)
+spearman <- function(x, y) cor(x, y, method = "spearman", use = missing_data_behaviour)
+
+method <- ctx$op.value('method', as.character, "pearson")
 
 df_out <- ctx %>% 
   select(.y, .ri, .ci) %>% 
