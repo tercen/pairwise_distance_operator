@@ -1,42 +1,46 @@
 {
   "name": "Pairwise Distance",
   "description": "Calculates various pairwise distances between variables.",
-  "tags": ["basic statistics"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/pairwise_distance_operator"],
+  "tags": [
+    "descriptive statistics"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/pairwise_distance_operator"
+  ],
   "properties": [
-   {
-    "kind": "EnumeratedProperty",
-    "name": "method",
-    "defaultValue": "euclidian",
-    "values": [
-      "euclidian",
-      "pearson",
-      "spearman",
-      "kendall",
-      "rmsd",
-      "maximum",
-      "manhattan",
-      "canberra",
-      "binary",
-      "minkowski"
-    ],
-    "description": "The distance measure to be used."
-  },
-  {
-    "kind": "EnumeratedProperty",
-    "name": "missing_data_behaviour",
-    "defaultValue": "na.or.complete",
-    "values": [
-      "na.or.complete",
-      "pairwise.complete.obs",
-      "everything",
-      "all.obs",
-      "complete.obs"
-    ],
-    "description": "Method for computing covariances in the presence of missing values. See cor() function documentation in R."
-  } 
+    {
+      "kind": "EnumeratedProperty",
+      "name": "method",
+      "defaultValue": "euclidian",
+      "values": [
+        "euclidian",
+        "pearson",
+        "spearman",
+        "kendall",
+        "rmsd",
+        "maximum",
+        "manhattan",
+        "canberra",
+        "binary",
+        "minkowski"
+      ],
+      "description": "The distance measure to be used."
+    },
+    {
+      "kind": "EnumeratedProperty",
+      "name": "missing_data_behaviour",
+      "defaultValue": "na.or.complete",
+      "values": [
+        "na.or.complete",
+        "pairwise.complete.obs",
+        "everything",
+        "all.obs",
+        "complete.obs"
+      ],
+      "description": "Method for computing covariances in the presence of missing values. See cor() function documentation in R."
+    }
   ]
 }
-
-
