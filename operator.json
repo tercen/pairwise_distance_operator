@@ -1,6 +1,6 @@
 {
   "name": "Pairwise Distance",
-  "description": "Calculates various pairwise distances between variables.",
+  "description": "Computes various pairwise distance metrics between variables.",
   "tags": [
     "descriptive statistics"
   ],
