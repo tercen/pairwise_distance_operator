@@ -14,18 +14,17 @@
     {
       "kind": "EnumeratedProperty",
       "name": "method",
-      "defaultValue": "euclidean",
+      "defaultValue": "Euclidean",
       "values": [
-        "euclidean",
-        "pearson",
-        "spearman",
-        "kendall",
-        "rmsd",
-        "maximum",
-        "manhattan",
-        "canberra",
-        "binary",
-        "minkowski"
+        "Euclidean",
+        "Pearson",
+        "correlation",
+        "cosine",
+        "Jaccard",
+        "Mahalanobis",
+        "Manhattan",
+        "Bray",
+        "Minkowski"
       ],
       "description": "The distance measure to be used."
     },
