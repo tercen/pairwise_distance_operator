@@ -1,21 +1,37 @@
 {
-  "outputSpecs": [{
-    "kind": "OperatorJoinSpec",
-    "joinOperators": [{
-      "kind": "JoinOperator",
-      "joinType": "left",
-      "leftPair": {
-        "kind": "ColumnPair",
-        "lColumns": ["Variables"],
-        "rColumns": ["Variables"]
-      },
-      "rightRelation": {
-        "kind": "TableRelation",
-        "attributes": [
-          {"kind": "Attribute", "name": "dist_to", "type": "string"},
-          {"kind": "Attribute", "name": "dist", "type": "double"}
-        ]
-      }
-    }]
-  }]
+  "outputSpecsV2": [
+    {
+      "kind": "OperatorJoinSpec",
+      "joinOperators": [
+        {
+          "kind": "JoinOperator",
+          "joinType": "left",
+          "leftPair": {
+            "kind": "ColumnPair",
+            "lColumns": [
+              "Variables"
+            ],
+            "rColumns": [
+              "Variables"
+            ]
+          },
+          "rightRelation": {
+            "kind": "TableRelation",
+            "attributes": [
+              {
+                "kind": "Attribute",
+                "name": "dist_to",
+                "type": "string"
+              },
+              {
+                "kind": "Attribute",
+                "name": "dist",
+                "type": "double"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }
